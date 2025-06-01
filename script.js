@@ -58,6 +58,27 @@ requisicao.onreadystatechange = function () {
         confirmacao += "<p>ID: F004<br>Título: Matrix<br>Ano: 1999<br>Gênero: Ficção Científica</p>";
         document.getElementById("novo-filme").innerHTML = confirmacao;
     }
+    // QUESTÃO 5: Remover o filme com id="F002" do DOM em memória
+    var filmesRaiz = xmlDoc.getElementsByTagName("filmes")[0];
+    var filmesLista = xmlDoc.getElementsByTagName("filme");
+    var filmesArray = Array.from(filmesLista); // evita erro de índice ao remover
+
+    for (var i = 0; i < filmesArray.length; i++) {
+        if (filmesArray[i].getAttribute("id" ) === "F002") {
+            filmesRaiz.removeChild(filmesArray[i]);
+            document.getElementById("resultado-remocao").innerHTML =
+                "Filme com id='F002' foi removido com sucesso.";
+            break;
+        }
+    }
+    var titulosAtualizados = xmlDoc.getElementsByTagName("titulo");
+    var listaAtualizada = "<ul>";
+    for (var i = 0; i < titulosAtualizados.length; i++) {
+        listaAtualizada += "<li>" + titulosAtualizados[i].childNodes[0].nodeValue + "</li>";
+    }
+    listaAtualizada += "</ul>";
+    document.getElementById("lista-atualizada").innerHTML = "<strong>Filmes atuais:</strong>" + listaAtualizada;
+
 };
 requisicao.open("GET", "filmes.xml", true);
 requisicao.send();
