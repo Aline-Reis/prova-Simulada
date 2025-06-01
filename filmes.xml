@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filmes>
+    <filme id="F001">
+        <titulo>A Origem</titulo>
+        <diretor>Christopher Nolan</diretor>
+        <ano>2010</ano>
+        <genero>Ficção Científica</genero>
+    </filme>
+    <filme id="F002">
+        <titulo>O Poderoso Chefão</titulo>
+        <diretor>Francis Ford Coppola</diretor>
+        <ano>1972</ano>
+        <genero>Drama</genero>
+    </filme>
+    <filme id="F003">
+        <titulo>Interestelar</titulo>
+        <diretor>Christopher Nolan</diretor>
+        <ano>2014</ano>
+        <genero>Ficção Científica</genero>
+    </filme>
+</filmes>
