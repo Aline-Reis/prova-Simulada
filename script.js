@@ -26,6 +26,32 @@ requisicao.onreadystatechange = function () {
 
         var infoFilme = "ID: " + id + "<br>Título: " + titulo2 + "<br>Ano: " + ano;
         document.getElementById("informacoes-filmes").innerHTML = infoFilme;
+
+        //Questão 3: Adcionando um novo filme ao DOM e memória
+        var novoFilme = xmlDoc.createElement("filme");
+        novoFilme.setAttribute("id", "F004");
+
+        var tituloNovo = xmlDoc.createElement("titulo");
+        tituloNovo.appendChild(xmlDoc.createTextNode("Matrix"));
+        novoFilme.appendChild(tituloNovo);
+
+        var diretorNovo = xmlDoc.createElement("diretor");
+        diretorNovo.appendChild(xmlDoc.createTextNode("Lana Wachowski e Lilly Wachowski"));
+        novoFilme.appendChild(diretorNovo);
+
+        var anoNovo = xmlDoc.createElement("ano");
+        anoNovo.appendChild(xmlDoc.createTextNode("1999"));
+        novoFilme.appendChild(anoNovo);
+
+        var generoNovo = xmlDoc.createElement("genero");
+        generoNovo.appendChild(xmlDoc.createTextNode("Ficção Científica"));
+        novoFilme.appendChild(generoNovo);
+
+        xmlDoc.getElementsByTagName("filmes")[0].appendChild(novoFilme);
+
+        var confirmacao = "<p><strong>Novo filme adicionado em memória:</strong></p>";
+        confirmacao += "<p>ID: F004<br>Título: Matrix<br>Ano: 1999<br>Gênero: Ficção Científica</p>";
+        document.getElementById("novo-filme").innerHTML = confirmacao;
     }
 };
 requisicao.open("GET", "filmes.xml", true);
