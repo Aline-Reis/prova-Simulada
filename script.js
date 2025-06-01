@@ -27,7 +27,12 @@ requisicao.onreadystatechange = function () {
         var infoFilme = "ID: " + id + "<br>Título: " + titulo2 + "<br>Ano: " + ano;
         document.getElementById("informacoes-filmes").innerHTML = infoFilme;
 
-        //Questão 3: Adcionando um novo filme ao DOM e memória
+        //Questão 3: Acessando o nome do diretor do primeiro filme
+        var primeiroFilme = xmlDoc.getElementsByTagName("filme")[0];
+        var nomeDiretor = primeiroFilme.getElementsByTagName("diretor")[0].firstChild.nodeValue;
+        document.getElementById("primeiro-diretor").innerHTML = "Diretor: " + nomeDiretor;
+
+        //Questão 4: Adcionando um novo filme ao DOM e memória
         var novoFilme = xmlDoc.createElement("filme");
         novoFilme.setAttribute("id", "F004");
 
